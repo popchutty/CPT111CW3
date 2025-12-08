@@ -33,7 +33,7 @@ public class MovieManager {
     public boolean loadMovies() {
         try {
             ArrayList<String> lines = FileHandler.readCSV(movieFilePath);
-            
+
             if (lines.isEmpty()) {
                 System.out.println("Movie file is empty.");
                 return false;
@@ -82,7 +82,7 @@ public class MovieManager {
     }
 
     /**
-     * Gets all movies (in loading order)
+     * Gets all movies
      * @return the list of all movies
      */
     public ArrayList<Movie> getAllMovies() {

@@ -207,7 +207,6 @@ public class CommandLineInterface {
         System.out.println("Password strength: " + strength);
         
         if (!util.PasswordUtils.isValidPassword(password)) {
-            System.out.println("Password must be at least 6 characters long.");
             return;
         }
         

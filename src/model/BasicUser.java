@@ -5,9 +5,9 @@ package model;
  * Has limited feature permissions
  */
 public class BasicUser extends User {
-    
-    private static final int MAX_WATCHLIST_SIZE = 10;
-    private static final int MAX_RECOMMENDATIONS = 5;
+
+    private static int MAX_WATCHLIST_SIZE = 10;
+    private static int MAX_RECOMMENDATIONS = 5;
 
     /**
      * Constructor

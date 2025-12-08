@@ -5,7 +5,7 @@ package model;
  * Typically movies shorter than 40 minutes
  */
 public class ShortFilm extends Movie {
-    
+
     private boolean isAnimated;
     private String filmFestival;
 
@@ -20,7 +20,7 @@ public class ShortFilm extends Movie {
     public ShortFilm(String id, String title, String genre, int year, double rating) {
         super(id, title, genre, year, rating, Movie.TYPE_SHORT, 20);
     }
-    
+
     /**
      * Full constructor
      * @param id the movie ID
@@ -61,7 +61,7 @@ public class ShortFilm extends Movie {
             extra = extra + " | Animated";
         }
         if (filmFestival != null && !filmFestival.isEmpty()) {
-            extra = extra + " | Festival: " + filmFestival;
+            extra = extra + " | FilmFestival: " + filmFestival;
         }
         return baseInfo + extra;
     }

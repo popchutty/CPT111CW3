@@ -5,7 +5,7 @@ package model;
  * Typically movies longer than 40 minutes
  */
 public class FeatureFilm extends Movie {
-    
+
     private String director;
     private String[] mainCast;
 
@@ -20,7 +20,7 @@ public class FeatureFilm extends Movie {
     public FeatureFilm(String id, String title, String genre, int year, double rating) {
         super(id, title, genre, year, rating, Movie.TYPE_FEATURE, 120);
     }
-    
+
     /**
      * Full constructor
      * @param id the movie ID
@@ -57,7 +57,7 @@ public class FeatureFilm extends Movie {
     public String toDetailedString() {
         String baseInfo = super.toDetailedString();
         if (director != null && !director.isEmpty()) {
-            return baseInfo + " | Dir: " + director;
+            return baseInfo + " | Director: " + director;
         }
         return baseInfo;
     }

@@ -18,8 +18,6 @@ import java.util.HashMap;
 public class UserManager {
     private HashMap<String, User> users;
     private String userFilePath;
-    
-    private static final String CSV_HEADER = "username,password,usertype,watchlist,history";
 
     /**
      * Constructor
@@ -125,7 +123,7 @@ public class UserManager {
         try {
             ArrayList<String> lines = new ArrayList<String>();
             
-            lines.add(CSV_HEADER);
+            lines.add("username,password,usertype,watchlist,history");
             
             for (User user : users.values()) {
                 lines.add(user.toCSV());
@@ -325,4 +323,3 @@ public class UserManager {
         return PasswordUtils.getPasswordStrength(password);
     }
 }
-

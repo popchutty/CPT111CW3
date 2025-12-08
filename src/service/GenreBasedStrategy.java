@@ -10,30 +10,30 @@ import java.util.HashMap;
  * Recommends movies based on user's most-watched genres
  */
 public class GenreBasedStrategy extends RecommendationStrategy {
-    
+
     private RecommendationEngine engine;
-    
+
     public GenreBasedStrategy(RecommendationEngine engine) {
         this.engine = engine;
     }
-    
+
     public String getName() {
         return "Genre-Based";
     }
-    
+
     public String getDescription() {
         return "Recommends movies based on your favorite genres from watch history";
     }
-    
+
     public boolean requiresPremium() {
         return false;
     }
-    
+
     public ArrayList<Movie> recommend(User user, MovieManager movieManager, int topN) {
         ArrayList<Movie> recommendations = new ArrayList<Movie>();
         HashMap<String, Integer> genreCounts = new HashMap<String, Integer>();
         ArrayList<String> watchedMovieIds = user.getHistory().getMovieIds();
-        
+
         for (int i = 0; i < watchedMovieIds.size(); i++) {
             String movieId = watchedMovieIds.get(i);
             Movie movie = movieManager.getMovieById(movieId);
@@ -82,7 +82,7 @@ public class GenreBasedStrategy extends RecommendationStrategy {
             ArrayList<String> excludeIds = new ArrayList<String>();
             excludeIds.addAll(watchedMovieIds);
             excludeIds.addAll(user.getWatchlist().getMovieIds());
-            
+
             ArrayList<Movie> filteredMovies = new ArrayList<Movie>();
             for (int i = 0; i < genreMovies.size(); i++) {
                 Movie movie = genreMovies.get(i);
@@ -90,9 +90,9 @@ public class GenreBasedStrategy extends RecommendationStrategy {
                     filteredMovies.add(movie);
                 }
             }
-            
+
             engine.sortMoviesByRating(filteredMovies);
-            
+
             int limit = Math.min(topN, filteredMovies.size());
             for (int i = 0; i < limit; i++) {
                 recommendations.add(filteredMovies.get(i));

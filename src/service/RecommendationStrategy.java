@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Implements the strategy pattern using class inheritance and method overriding
  */
 public class RecommendationStrategy {
-    
+
     /**
      * Gets the strategy name
      * @return the strategy name
@@ -17,7 +17,7 @@ public class RecommendationStrategy {
     public String getName() {
         return "Default";
     }
-    
+
     /**
      * Gets the strategy description
      * @return the strategy description
@@ -25,7 +25,7 @@ public class RecommendationStrategy {
     public String getDescription() {
         return "Default recommendation strategy";
     }
-    
+
     /**
      * Recommends movies based on strategy
      * @param user the user object
@@ -36,7 +36,7 @@ public class RecommendationStrategy {
     public ArrayList<Movie> recommend(User user, MovieManager movieManager, int topN) {
         return new ArrayList<Movie>();
     }
-    
+
     /**
      * Checks if this strategy requires premium permission
      * @return true if requires

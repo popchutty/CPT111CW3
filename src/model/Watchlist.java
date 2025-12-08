@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 
 /**
- * Watchlist class - Encapsulates user's watchlist
+ * Watchlist class
  * Provides methods to add, remove, and view movies
  */
 public class Watchlist {

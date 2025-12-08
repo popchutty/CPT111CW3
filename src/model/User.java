@@ -6,9 +6,9 @@ package model;
  * Supports subclassing (BasicUser, PremiumUser)
  */
 public class User {
-    public static final String TYPE_BASIC = "basic";
-    public static final String TYPE_PREMIUM = "premium";
-    
+    public static String TYPE_BASIC = "basic";
+    public static String TYPE_PREMIUM = "premium";
+
     protected String username;
     protected String password;
     protected Watchlist watchlist;
@@ -27,7 +27,7 @@ public class User {
         this.history = new History();
         this.userType = TYPE_BASIC;
     }
-    
+
     /**
      * Constructor with user type
      * @param username the username
@@ -54,7 +54,7 @@ public class User {
     public History getHistory() {
         return history;
     }
-    
+
     public String getUserType() {
         return userType;
     }
@@ -74,29 +74,29 @@ public class User {
     public void setHistory(History history) {
         this.history = history;
     }
-    
+
     public void setUserType(String userType) {
         this.userType = userType;
     }
 
     /**
-     * Gets the maximum watchlist size (can be overridden by subclasses)
+     * Gets the maximum watchlist size
      * @return the maximum size
      */
     public int getMaxWatchlistSize() {
         return 10;
     }
-    
+
     /**
-     * Gets the maximum number of recommendations (can be overridden by subclasses)
+     * Gets the maximum number of recommendations
      * @return the maximum number
      */
     public int getMaxRecommendations() {
         return 5;
     }
-    
+
     /**
-     * Checks if advanced recommendation strategies can be used (can be overridden by subclasses)
+     * Checks if advanced recommendation strategies can be used
      * @return whether available
      */
     public boolean canUseAdvancedRecommendations() {
@@ -139,14 +139,13 @@ public class User {
      * @return the CSV format string
      */
     public String toCSV() {
-        return String.format("%s,%s,%s,%s,%s",
-                           username,
-                           password,
-                           userType,
-                           watchlist.toCSV(),
-                           history.toCSV());
+        return username + ","
+                + password + ","
+                + userType + ","
+                + watchlist.toCSV() + ","
+                + history.toCSV();
     }
-    
+
     /**
      * Gets the user type display name
      * @return the display name

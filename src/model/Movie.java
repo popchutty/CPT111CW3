@@ -6,9 +6,9 @@ package model;
  * Supports subclassing (FeatureFilm, ShortFilm)
  */
 public class Movie {
-    public static final String TYPE_FEATURE = "feature";
-    public static final String TYPE_SHORT = "short";
-    
+    public static String TYPE_FEATURE = "feature";
+    public static String TYPE_SHORT = "short";
+
     protected String id;
     protected String title;
     protected String genre;
@@ -34,7 +34,7 @@ public class Movie {
         this.movieType = TYPE_FEATURE;
         this.duration = 120;
     }
-    
+
     /**
      * Full constructor
      * @param id the movie ID
@@ -71,11 +71,11 @@ public class Movie {
     public double getRating() {
         return rating;
     }
-    
+
     public String getMovieType() {
         return movieType;
     }
-    
+
     public int getDuration() {
         return duration;
     }
@@ -99,15 +99,15 @@ public class Movie {
     public void setRating(double rating) {
         this.rating = rating;
     }
-    
+
     public void setMovieType(String movieType) {
         this.movieType = movieType;
     }
-    
+
     public void setDuration(int duration) {
         this.duration = duration;
     }
-    
+
     /**
      * Checks if it is a feature film
      * @return true if it is a feature film
@@ -115,7 +115,7 @@ public class Movie {
     public boolean isFeatureFilm() {
         return TYPE_FEATURE.equals(movieType) || duration >= 40;
     }
-    
+
     /**
      * Checks if it is a short film
      * @return true if it is a short film
@@ -123,7 +123,7 @@ public class Movie {
     public boolean isShortFilm() {
         return TYPE_SHORT.equals(movieType) || duration < 40;
     }
-    
+
     /**
      * Gets the movie type display name
      * @return the display name
@@ -134,7 +134,7 @@ public class Movie {
         }
         return "Feature Film";
     }
-    
+
     /**
      * Gets the formatted duration string
      * @return the formatted duration
@@ -153,18 +153,17 @@ public class Movie {
      */
     @Override
     public String toString() {
-        return String.format("[%s] %s (%d) - %s | Rating: %.1f/10.0", 
-                           id, title, year, genre, rating);
+        return String.format("[%s] %s (%d) - %s | Rating: %.1f/10.0",
+                            id, title, year, genre, rating);
     }
-    
+
     /**
      * Detailed toString
      * @return the detailed information string
      */
     public String toDetailedString() {
-        return String.format("[%s] %s (%d) - %s | Rating: %.1f/10.0 | %s | %s", 
-                           id, title, year, genre, rating, 
-                           getMovieTypeDisplayName(), getFormattedDuration());
+        return String.format("[%s] %s (%d) - %s | Rating: %.1f/10.0 | %s | %s",
+                            id, title, year, genre, rating, getMovieTypeDisplayName(), getFormattedDuration());
     }
 
     /**

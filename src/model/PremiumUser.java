@@ -5,7 +5,7 @@ package model;
  * Has full feature permissions
  */
 public class PremiumUser extends User {
-    
+
     private static final int MAX_WATCHLIST_SIZE = 100;
     private static final int MAX_RECOMMENDATIONS = 20;
 

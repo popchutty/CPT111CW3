@@ -59,9 +59,7 @@ public class FileHandler {
             writer = new BufferedWriter(new FileWriter(filePath));
             for (int i = 0; i < lines.size(); i++) {
                 writer.write(lines.get(i));
-                if (i < lines.size() - 1) {
-                    writer.newLine();
-                }
+                writer.newLine();
             }
         } catch (IOException e) {
             writeException = e;
@@ -89,6 +87,7 @@ public class FileHandler {
         if (line == null || line.trim().isEmpty()) {
             return new String[0];
         }
+        // return line.split(",");
         return line.split(",", -1);
     }
 

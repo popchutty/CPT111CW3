@@ -22,7 +22,7 @@ public class RecommendationEngine {
         this.strategies = new ArrayList<RecommendationStrategy>();
         initializeStrategies();
     }
-    
+
     /**
      * Initializes all recommendation strategies
      */
@@ -31,10 +31,10 @@ public class RecommendationEngine {
         strategies.add(new RatingBasedStrategy(this));
         strategies.add(new YearBasedStrategy(this));
         strategies.add(new HybridStrategy(this));
-        
+
         currentStrategy = strategies.get(0);
     }
-    
+
     /**
      * Gets all available strategies
      * @return the list of strategies
@@ -46,7 +46,7 @@ public class RecommendationEngine {
         }
         return copy;
     }
-    
+
     /**
      * Gets available strategies for user (considering permissions)
      * @param user the user
@@ -62,7 +62,7 @@ public class RecommendationEngine {
         }
         return available;
     }
-    
+
     /**
      * Sets the current strategy
      * @param strategyIndex the strategy index
@@ -75,7 +75,7 @@ public class RecommendationEngine {
         }
         return false;
     }
-    
+
     /**
      * Sets the current strategy
      * @param strategy the strategy object
@@ -83,7 +83,7 @@ public class RecommendationEngine {
     public void setStrategy(RecommendationStrategy strategy) {
         this.currentStrategy = strategy;
     }
-    
+
     /**
      * Gets the current strategy
      * @return the current strategy
@@ -102,7 +102,7 @@ public class RecommendationEngine {
         int maxN = Math.min(topN, user.getMaxRecommendations());
         return currentStrategy.recommend(user, movieManager, maxN);
     }
-    
+
     /**
      * Recommends movies using specified strategy
      * @param user the user object
@@ -118,17 +118,17 @@ public class RecommendationEngine {
         }
         return getRecommendations(user, topN);
     }
-    
+
     /**
      * Gets top rated movies
      */
     public ArrayList<Movie> getTopRatedMovies(int count, User user) {
         ArrayList<Movie> allMovies = movieManager.getAllMovies();
-        
+
         ArrayList<String> excludeIds = new ArrayList<String>();
         excludeIds.addAll(user.getHistory().getMovieIds());
         excludeIds.addAll(user.getWatchlist().getMovieIds());
-        
+
         ArrayList<Movie> filteredMovies = new ArrayList<Movie>();
         for (int i = 0; i < allMovies.size(); i++) {
             Movie movie = allMovies.get(i);
@@ -136,15 +136,15 @@ public class RecommendationEngine {
                 filteredMovies.add(movie);
             }
         }
-        
+
         sortMoviesByRating(filteredMovies);
-        
+
         ArrayList<Movie> result = new ArrayList<Movie>();
         int limit = Math.min(count, filteredMovies.size());
         for (int i = 0; i < limit; i++) {
             result.add(filteredMovies.get(i));
         }
-        
+
         return result;
     }
 
@@ -163,7 +163,7 @@ public class RecommendationEngine {
             }
         }
     }
-    
+
     /**
      * Sorts scored movies by score in descending order
      */

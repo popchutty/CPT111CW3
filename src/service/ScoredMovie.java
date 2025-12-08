@@ -9,7 +9,7 @@ import model.Movie;
 public class ScoredMovie {
     public Movie movie;
     public double score;
-    
+
     public ScoredMovie(Movie movie, double score) {
         this.movie = movie;
         this.score = score;

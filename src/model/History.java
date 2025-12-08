@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * History class - Encapsulates user's watch history
+ * History class
  * Records movie IDs and watch dates
  */
 public class History {
@@ -82,7 +82,7 @@ public class History {
     }
 
     /**
-     * Converts the watch history to a CSV format string (semicolon separated, format: ID@DATE)
+     * Converts the watch history to a CSV format string
      * @return the CSV format string
      */
     public String toCSV() {
