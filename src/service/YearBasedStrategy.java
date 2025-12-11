@@ -16,18 +16,22 @@ public class YearBasedStrategy extends RecommendationStrategy {
         this.engine = engine;
     }
 
+    @Override
     public String getName() {
         return "Recent & Popular";
     }
 
+    @Override
     public String getDescription() {
         return "Recommends highly rated movies from recent years (2015+)";
     }
 
+    @Override
     public boolean requiresPremium() {
         return true;
     }
 
+    @Override
     public ArrayList<Movie> recommend(User user, MovieManager movieManager, int topN) {
         ArrayList<Movie> allMovies = movieManager.getAllMovies();
         ArrayList<String> excludeIds = new ArrayList<String>();
