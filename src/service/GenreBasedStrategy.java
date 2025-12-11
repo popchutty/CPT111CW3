@@ -17,18 +17,22 @@ public class GenreBasedStrategy extends RecommendationStrategy {
         this.engine = engine;
     }
 
+    @Override
     public String getName() {
         return "Genre-Based";
     }
 
+    @Override
     public String getDescription() {
         return "Recommends movies based on your favorite genres from watch history";
     }
 
+    @Override
     public boolean requiresPremium() {
         return false;
     }
 
+    @Override
     public ArrayList<Movie> recommend(User user, MovieManager movieManager, int topN) {
         ArrayList<Movie> recommendations = new ArrayList<Movie>();
         HashMap<String, Integer> genreCounts = new HashMap<String, Integer>();

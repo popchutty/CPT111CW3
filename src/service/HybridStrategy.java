@@ -17,18 +17,22 @@ public class HybridStrategy extends RecommendationStrategy {
         this.engine = engine;
     }
 
+    @Override
     public String getName() {
         return "Smart Hybrid";
     }
 
+    @Override
     public String getDescription() {
         return "Advanced recommendation combining genre preference, rating, and recency";
     }
 
+    @Override
     public boolean requiresPremium() {
         return true;
     }
 
+    @Override
     public ArrayList<Movie> recommend(User user, MovieManager movieManager, int topN) {
         ArrayList<Movie> recommendations = new ArrayList<Movie>();
         HashMap<String, Integer> genreCounts = new HashMap<String, Integer>();

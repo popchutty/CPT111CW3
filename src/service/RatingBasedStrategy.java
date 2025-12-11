@@ -16,18 +16,22 @@ public class RatingBasedStrategy extends RecommendationStrategy {
         this.engine = engine;
     }
 
+    @Override
     public String getName() {
         return "Top Rated";
     }
 
+    @Override
     public String getDescription() {
         return "Recommends highest rated movies you haven't seen";
     }
 
+    @Override
     public boolean requiresPremium() {
         return false;
     }
 
+    @Override
     public ArrayList<Movie> recommend(User user, MovieManager movieManager, int topN) {
         return engine.getTopRatedMovies(topN, user);
     }
