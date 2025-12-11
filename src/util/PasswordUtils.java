@@ -23,36 +23,14 @@ public class PasswordUtils {
     }
 
     /**
-     * Simple hash algorithm implementation
-     * Uses character ASCII values and positions for calculation
+     * Simple hash algorithm
      * @param text the text to hash
      * @return the hash result
      */
     private static String simpleHash(String text) {
-        long hash = 0;
-        for (int i = 0; i < text.length(); i++) {
-            char c = text.charAt(i);
-            hash = ((hash * 31) + c) * 17 + i;
-            hash = hash ^ (hash >>> 16);
-        }
-
-        String hexString = "";
-        long tempHash = hash;
-        if (tempHash < 0) {
-            tempHash = -tempHash;
-        }
-
-        for (int i = 0; i < 16; i++) {
-            int digit = (int)(tempHash % 16);
-            tempHash = tempHash / 16 + (text.length() * 13);
-            if (digit < 10) {
-                hexString = (char)('0' + digit) + hexString;
-            } else {
-                hexString = (char)('a' + digit - 10) + hexString;
-            }
-        }
-
-        return hexString;
+        String hashString = "";
+        hashString = Integer.toHexString(text.hashCode());
+        return hashString;
     }
 
 
