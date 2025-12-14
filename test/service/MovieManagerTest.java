@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class MovieManagerTest {
     
     private MovieManager movieManager;
-    private static final String TEST_DATA_PATH = "data/movies.csv";
+    private static String TEST_DATA_PATH = "data/movies.csv";
     
     @Before
     public void setUp() {

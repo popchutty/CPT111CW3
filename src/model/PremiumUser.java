@@ -6,8 +6,8 @@ package model;
  */
 public class PremiumUser extends User {
 
-    private static final int MAX_WATCHLIST_SIZE = 100;
-    private static final int MAX_RECOMMENDATIONS = 20;
+    private static int MAX_WATCHLIST_SIZE = 100;
+    private static int MAX_RECOMMENDATIONS = 20;
 
     /**
      * Constructor

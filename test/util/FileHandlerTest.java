@@ -15,9 +15,9 @@ import java.util.ArrayList;
  */
 public class FileHandlerTest {
     
-    private static final String TEST_FILE = "data/test_file_handler.csv";
-    private static final String TEST_DIR = "data/test_subdir";
-    private static final String TEST_FILE_IN_DIR = TEST_DIR + "/test.csv";
+    private static String TEST_FILE = "data/test_file_handler.csv";
+    private static String TEST_DIR = "data/test_subdir";
+    private static String TEST_FILE_IN_DIR = TEST_DIR + "/test.csv";
     
     @Before
     public void setUp() {

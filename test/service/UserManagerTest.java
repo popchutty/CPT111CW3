@@ -17,7 +17,7 @@ import java.io.File;
 public class UserManagerTest {
     
     private UserManager userManager;
-    private static final String TEST_USER_FILE = "data/test_users.csv";
+    private static String TEST_USER_FILE = "data/test_users.csv";
     
     @Before
     public void setUp() {
