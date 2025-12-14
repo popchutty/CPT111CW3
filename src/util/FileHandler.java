@@ -102,22 +102,6 @@ public class FileHandler {
     }
 
     /**
-     * Creates file if it does not exist
-     * @param filePath the file path
-     * @throws IOException if file creation fails
-     */
-    public static void createFileIfNotExists(String filePath) throws IOException {
-        File file = new File(filePath);
-        if (!file.exists()) {
-            File parentDir = file.getParentFile();
-            if (parentDir != null && !parentDir.exists()) {
-                parentDir.mkdirs();
-            }
-            file.createNewFile();
-        }
-    }
-
-    /**
      * Reads a specific line from file
      * @param filePath the file path
      * @param lineNumber the line number (0-based)

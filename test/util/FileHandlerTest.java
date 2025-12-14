@@ -170,29 +170,6 @@ public class FileHandlerTest {
     }
     
     @Test
-    public void testCreateFileIfNotExists() throws IOException {
-        assertFalse(FileHandler.fileExists(TEST_FILE));
-        
-        FileHandler.createFileIfNotExists(TEST_FILE);
-        
-        assertTrue(FileHandler.fileExists(TEST_FILE));
-        
-        // Creating again should not throw exception
-        FileHandler.createFileIfNotExists(TEST_FILE);
-        assertTrue(FileHandler.fileExists(TEST_FILE));
-    }
-    
-    @Test
-    public void testCreateFileIfNotExistsWithDirectory() throws IOException {
-        assertFalse(FileHandler.fileExists(TEST_FILE_IN_DIR));
-        
-        FileHandler.createFileIfNotExists(TEST_FILE_IN_DIR);
-        
-        assertTrue(FileHandler.fileExists(TEST_FILE_IN_DIR));
-        assertTrue(new File(TEST_DIR).exists());
-    }
-    
-    @Test
     public void testReadLine() throws IOException {
         ArrayList<String> lines = new ArrayList<>();
         lines.add("line0");

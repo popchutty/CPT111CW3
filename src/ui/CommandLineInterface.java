@@ -41,9 +41,9 @@ public class CommandLineInterface {
      * Starts the user interface
      */
     public void start() {
-        System.out.println("==========================================");
+        System.out.println("------------------------------------------");
         System.out.println("  Welcome to Movie Recommendation System  ");
-        System.out.println("==========================================");
+        System.out.println("------------------------------------------");
         
         boolean running = true;
         while (running) {
@@ -63,7 +63,7 @@ public class CommandLineInterface {
      * @return true to continue running, false to exit
      */
     private boolean showMainMenu() {
-        System.out.println("\n========== Main Menu ==========");
+        System.out.println("\n---------- Main Menu ----------");
         System.out.println("1. Login");
         System.out.println("2. Register");
         System.out.println("3. Exit");
@@ -96,8 +96,8 @@ public class CommandLineInterface {
      * @return true to continue running, false to exit
      */
     private boolean showUserMenu() {
-        System.out.println("\n========== User Menu (" + currentUser.getUserTypeDisplayName() + 
-                         " - " + currentUser.getUsername() + ") ==========");
+        System.out.println("\n---------- User Menu (" + currentUser.getUserTypeDisplayName() + 
+                         " - " + currentUser.getUsername() + ") ----------");
         System.out.println("1. Browse movies");
         System.out.println("2. Add movie to watchlist");
         System.out.println("3. Remove movie from watchlist");
@@ -234,7 +234,7 @@ public class CommandLineInterface {
         
         model.User newUser = userManager.register(username, password, userType);
         if (newUser != null) {
-            System.out.println("\n✓ Registration successful!");
+            System.out.println("\n Registration successful!");
             System.out.println("Account type: " + newUser.getUserTypeDisplayName());
             System.out.println("You can now login with your credentials.");
         } else {
@@ -481,7 +481,7 @@ public class CommandLineInterface {
             if (choice >= 1 && choice <= availableStrategies.size()) {
                 service.RecommendationStrategy selected = availableStrategies.get(choice - 1);
                 recommendationEngine.setStrategy(selected);
-                System.out.println("✓ Strategy changed to: " + selected.getName());
+                System.out.println("Strategy changed to: " + selected.getName());
             } else {
                 System.out.println("Invalid choice.");
             }
@@ -524,7 +524,7 @@ public class CommandLineInterface {
         }
         
         if (userManager.changePassword(currentUser, oldPassword, newPassword)) {
-            System.out.println("✓ Password changed successfully!");
+            System.out.println("Password changed successfully!");
         } else {
             System.out.println("Failed to change password. Please check:");
             System.out.println("- Current password is correct");
@@ -552,24 +552,5 @@ public class CommandLineInterface {
         } else if (currentUser.getUserType().equals(model.User.TYPE_PREMIUM)) {
             System.out.println("\n" + ((model.PremiumUser)currentUser).getPremiumBenefits());
         }
-    }
-
-    /**
-     * Displays movies with numbers (helper method)
-     */
-    @SuppressWarnings("unused")
-    private void displayMoviesWithNumbers(ArrayList<Movie> movies) {
-        for (int i = 0; i < movies.size(); i++) {
-            System.out.println((i + 1) + ". " + movies.get(i));
-        }
-    }
-
-    /**
-     * Pauses and waits for user to press enter to continue
-     */
-    @SuppressWarnings("unused")
-    private void pressEnterToContinue() {
-        System.out.print("\nPress Enter to continue...");
-        scanner.nextLine();
     }
 }
